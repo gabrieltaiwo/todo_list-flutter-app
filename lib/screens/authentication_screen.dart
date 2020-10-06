@@ -49,17 +49,17 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
   //   return isAvailable;
   // }
 
-//  Future<void> _getListOfBiometrics() async {
-//    List<BiometricType> listOfBiometrics;
-//    try {
-//      listOfBiometrics = await _localAuthentication.getAvailableBiometrics();
-//    } on PlatformException catch (e) {
-//      print(e);
-//    }
-//    if (!mounted) return;
-//
-//    print(listOfBiometrics);
-//  }
+  Future<void> _getListOfBiometrics() async {
+    List<BiometricType> listOfBiometrics;
+    try {
+      listOfBiometrics = await _localAuthentication.getAvailableBiometrics();
+    } on PlatformException catch (e) {
+      print(e);
+    }
+    if (!mounted) return;
+
+    print(listOfBiometrics);
+  }
 
 // var localAuth = LocalAuthentication();
 // bool didAuthenticate =
@@ -96,7 +96,7 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
       body: GestureDetector(
         onTap: () async {
           if (await _isBiometricsAvailable()) {
-            //await _getListOfBiometrics();
+            await _getListOfBiometrics();
             await _authenticate();
           }
         },
